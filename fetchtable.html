@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Fetch Api Table</title>
+  </head>
+  <style>
+      .fetchbtn {
+          border: none;
+          outline: none;
+          border-radius: 4px;
+          padding: 5px 10px;
+          margin: 10px;
+          cursor: pointer;
+      }
+
+      .fetchbtn:focus {
+          outline: none;
+      }
+  </style>
+  <body>
+      <button onclick="fetchdata()" class="fetchbtn">Fetch Details</button>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Sr no.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+
+        function fetchdata() {
+            url = "https://jsonplaceholder.typicode.com/users"
+            fetch(url)
+            .then(res => res.json())
+            .then(data => getdata(data))
+        }
+
+
+        function getdata(data) {
+            console.log(data)
+            data.forEach(ele => {
+                var tbody = document.querySelector("tbody");
+                var tr = document.createElement("tr");
+                var th = document.createElement("th");
+                var td1 = document.createElement("td");
+                var td2 = document.createElement("td");
+                var td3 = document.createElement("td");
+                var td4 = document.createElement("td");
+
+                th.innerHTML = ele.id;
+                td1.innerHTML = ele.name;
+                td2.innerHTML = ele.username;
+                td3.innerHTML = ele.email;
+                td4.innerHTML = ele.phone;
+
+                tr.append(th, td1 ,td2, td3, td4);
+                tbody.append(tr)
+
+            });
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let users = [
+            {user : "akash"},
+            {user : "prathamesh"},
+            {user : "dipesh"},
+            {user : "satyam"},
+            {user : "anuj"},
+            {user : "pratham"},
+        ]
+
+        //map
+        let result = users.map((user)=> { 
+            user.marks = Math.random()*100;
+            return user
+        })
+        console.log("the users are ")
+        console.log(result)
+
+        //filter
+        let candidates = result.filter((val) => {
+            return val.marks > 60
+        }, 0);
+        console.log(`The following candidates who pass the test are`)
+        console.log(candidates);
+
+        //reduce
+        const total = candidates.reduce(function (total, user) {
+            total.push(user);
+            return total;
+        }, []);
+
+        console.log(`Team includes`)
+        console.log(total)
+
+    </script>
+    
+</body>
+</html>

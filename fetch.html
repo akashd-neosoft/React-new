@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch api</title>
+</head>
+<style>
+    .title, .body {
+        text-decoration: underline;
+    }
+    .fetchbtn {
+          border: none;
+          outline: none;
+          border-radius: 4px;
+          padding: 5px 10px;
+          margin: 10px;
+          cursor: pointer;
+      }
+
+      .fetchbtn:focus {
+          outline: none;
+      }
+</style>
+<body>
+    <p>To fetch the api, press the below button</p>
+    <button onclick="fetchdata()" class="fetchbtn">Fetch Details</button>
+
+    <script>
+        function fetchdata() {
+            url = 'https://jsonplaceholder.typicode.com/posts';
+            fetch(url)
+            .then(res=> res.json())
+            .then(data=> posts(data))
+            alert("Data Fetched Successfully");
+        }
+
+        function posts(data) {
+            data.forEach(i => {
+                var div = document.createElement("div");
+                var bodytag = document.querySelector("body");
+                div.className="posts";
+                var title = document.createElement("p");
+                title.className= "titletext";
+                var body = document.createElement("p");
+                body.className = "bodytext";
+                title.innerHTML = "<span class='title'>"+"Title"+"</span>"+" - " + i.title;
+                body.innerHTML = "<span class='body'>"+"Body"+"</span>"+" - "+ i.body;
+                div.append(title, body);
+                bodytag.append(div);
+            }); 
+        }
+
+    </script>
+</body>
+</html>
