@@ -5,19 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Js Task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <Style>
-        .html_pages {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            border: 2px solid #000;
-            border-radius: 20px;
-            min-height: 300px;
-        }
-
-        .html_pages a {
-            padding: 10px 50px;
+        .table td a {
             color: #000;
             text-decoration: none;
             max-width: 100%;
@@ -25,17 +15,45 @@
             font-size: 1.3rem
         }
 
-        .html_pages a:first-child {
-            padding-top: 5rem;
+        .header {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
         }
     </Style>
 </head>
 <body>
-    <h2>List of Assignments</h2>
-    <div class="html_pages">
-        <a href="mapFilterReduce.html">Filter Map Reduce</a>
-        <a href="fetch.html">Fetch API</a>
-        <a href="fetchtable.html">Fetch API Table</a>
-    </div>
+    <h2 class="header">List of React js Assignments</h2>
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Sr no.</th>
+            <th scope="col">Assignment Name</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <th>1</th>
+              <td><a href="mapFilterReduce.html">Filter Map Reduce</a></td>
+              <td>12/20/21</td>
+          </tr>
+          <tr>
+              <th>2</th>
+              <td><a href="fetch.html">Fetch API</a></td>
+              <td>12/20/21</td>
+          </tr>
+          <tr>
+              <th>3</th>
+              <td><a href="fetchtable.html">Fetch API Table</a></td>
+              <td>12/20/21</td>
+          </tr>
+        </tbody>
+      </table>
 </body>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </html>
